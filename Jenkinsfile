@@ -31,7 +31,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: params.GIT_BRANCH, url: 'https://github.com/jagdishmodi/hello-world-2.git'
+                git branch: params.GIT_BRANCH, url: 'https://github.com/Pratikviswakarma/hello-world-2'
                  sh 'java -version'
                 sh 'mvn -version'
             }
