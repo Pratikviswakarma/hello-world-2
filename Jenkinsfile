@@ -29,14 +29,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: params.GIT_BRANCH, url: 'https://github.com/Pratikviswakarma/hello-world-2'
-                 sh 'java -version'
-                sh 'mvn -version'
-            }
-        }
-
  stage('Build + Test') {
             steps {
                 sh '${MVN_CMD} clean test'
@@ -75,7 +67,8 @@ pipeline {
         }
         stage('Docker Build & Push') {
             when {
-                anyOf { branch 'master'; branch 'release/*'; tag 'v*' }
+                anyOf { branch 'master'; branch 'release/*';
+                      }
             }
             steps {
                 script {
